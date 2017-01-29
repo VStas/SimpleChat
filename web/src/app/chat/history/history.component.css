@@ -1,0 +1,15 @@
+.chat-history {
+    text-align: center;
+}
+
+.chat-messages {
+    height: 500px;
+    overflow-y: scroll;
+    width: 300px;
+    text-align: left;
+    margin: auto;
+}
+
+.from {
+    font-weight: bold;
+}

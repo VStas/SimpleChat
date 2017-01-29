@@ -1,0 +1,13 @@
+<div class="chat-list">
+    <h3>Chat List</h3>
+    <div *ngIf="isLoading">
+        Loading...
+    </div>
+    <div *ngIf="!isLoading">
+        <div class="chat-list-item" *ngFor="let chat of chats">   
+            <a [routerLink]="['/chats/' + chat.chatId]">
+                {{ chat.peerName }}
+            </a>
+        </div>
+    </div>
+</div>

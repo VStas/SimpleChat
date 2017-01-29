@@ -1,0 +1,11 @@
+<div class="chat-history" *ngIf="history">
+    <a [routerLink]="['/chats/']">Back to all chats</a>
+    <h3 >Chat with {{ history.peerName }}</h3> 
+
+    <div class="chat-messages">
+        <div *ngFor="let message of history.messages">
+            <p class="from">{{ message.from }}:</p>
+            <p>{{ message.text }}</p>
+        </div>
+    </div>
+</div>

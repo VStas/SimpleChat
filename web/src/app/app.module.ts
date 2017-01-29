@@ -15,6 +15,12 @@ import { RepoDetailComponent } from './github/repo-detail/repo-detail.component'
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { ContactComponent } from './contact/contact.component';
 
+import { ChatListComponent  } from './chatlist/chatlist.component';
+import { ChatComponent } from './chat/chat.component';
+import { HistoryComponent } from './chat/history/history.component';
+import { TextareaComponent } from './chat/textarea/textarea.component';
+import { ChatService } from './services/chat.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +29,12 @@ import { ContactComponent } from './contact/contact.component';
     RepoListComponent,
     RepoDetailComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+
+    ChatListComponent,
+    ChatComponent,
+    HistoryComponent,
+    TextareaComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,8 @@ import { ContactComponent } from './contact/contact.component';
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
   providers: [
-    GithubService
+    GithubService,
+    ChatService
   ],
   bootstrap: [ AppComponent ]
 })

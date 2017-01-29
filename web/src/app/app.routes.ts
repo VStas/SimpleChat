@@ -7,8 +7,17 @@ import { RepoListComponent } from './github/repo-list/repo-list.component';
 import { RepoDetailComponent } from './github/repo-detail/repo-detail.component';
 import { ContactComponent } from './contact/contact.component';
 
+import { ChatListComponent  } from './chatlist/chatlist.component';
+import { ChatComponent } from './chat/chat.component';
+
+
 export const rootRouterConfig: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'chats', pathMatch: 'full' },
+  { path: 'chats', component: ChatListComponent },
+  { path: 'chats/:chatId', component: ChatComponent },
+
+
+
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'github', component: RepoBrowserComponent,
