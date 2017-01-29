@@ -50,7 +50,8 @@ export class ChatService {
   constructor(private http: Http) {}
   
   getChats(): Observable<Chat[]> {
-    return Observable.of(CHATS);
+    // return Observable.of(CHATS);
+    return this.makeRequest(CHATS_URL);
   }
 
   sendMessage(chatId: number, text: string): Observable<void> {
@@ -70,9 +71,9 @@ export class ChatService {
 
   private makeRequest(path: string) {
     const params = new URLSearchParams();
-    params.set('per_page', '100');
+    params.set('username', 'Mike');
 
-    const url = `https://api.github.com/${ path }`;
+    const url = `http://${window.location.host}${ path }`;
     return this.http.get(url, {search: params})
       .map((res) => res.json());
   }

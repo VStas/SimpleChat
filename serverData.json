@@ -1,0 +1,31 @@
+{
+    "chats": [
+        {
+            "chatId": 1,
+            "peers": [ "Mike", "Bob" ],
+            "messages": [
+                { "from": "Bob", "text": "Hi!" },
+                { "from": "Mike", "text": "Hey!" },
+                { "from": "Bob", "text": "How are you?" }
+            ]
+        },
+        {
+            "chatId": 2,
+            "peers": [ "Alice", "Mike" ],
+            "messages": [
+                { "from": "Alice", "text": "I'm Alice!" },
+                { "from": "Mike", "text": "I'm Mike!" },
+                { "from": "Alice", "text": "Nice to meet you" }
+            ]
+        },
+        {
+            "chatId": 3,
+            "peers": [ "Mike", "John" ],
+            "messages": [
+                { "from": "Mike", "text": "Hello!" },
+                { "from": "Mike", "text": "Can you see my messages?" },
+                { "from": "John", "text": "Yes" }
+            ]
+        }
+    ]
+}
