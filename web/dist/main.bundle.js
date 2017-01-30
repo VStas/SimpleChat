@@ -20683,7 +20683,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = __webpack_require__(0);
 var http_1 = __webpack_require__(205);
-var Observable_1 = __webpack_require__(6);
 var Subject_1 = __webpack_require__(42);
 __webpack_require__(375);
 __webpack_require__(694);
@@ -20704,6 +20703,7 @@ var CHAT_HISTORY = {
     ]
 };
 var CHATS_URL = '/chats/';
+var HISTORY_URL = '/history/';
 var ChatService = (function () {
     function ChatService(http) {
         var _this = this;
@@ -20714,21 +20714,20 @@ var ChatService = (function () {
             .share();
     }
     ChatService.prototype.getChats = function () {
-        // return Observable.of(CHATS);
-        return this.makeRequest(CHATS_URL);
+        return this.makeRequest(CHATS_URL, 'GET');
     };
     ChatService.prototype.sendMessage = function (chatId, text) {
-        return Observable_1.Observable.of(null);
+        return this.makeRequest(CHATS_URL + chatId, 'POST', { text: text });
+        // return Observable.of(null);
     };
     ChatService.prototype.getChatHistory = function (chatId) {
-        console.log('requesting');
-        return Observable_1.Observable.of(CHAT_HISTORY);
+        return this.makeRequest(HISTORY_URL + chatId, 'GET');
     };
-    ChatService.prototype.makeRequest = function (path) {
+    ChatService.prototype.makeRequest = function (path, method, body) {
         var params = new http_1.URLSearchParams();
         params.set('username', 'Mike');
         var url = "http://" + window.location.host + path;
-        return this.http.get(url, { search: params })
+        return this.http.request(url, { search: params, method: method, body: body })
             .map(function (res) { return res.json(); });
     };
     ChatService = __decorate([
@@ -59472,7 +59471,8 @@ var TextareaComponent = (function () {
         if (event.keyCode === 13) {
             this.chatService.sendMessage(this.chatId, this.userInput)
                 .subscribe(function () {
-                _this.chatService.getChatHistorySubject.next();
+                // console.log('here');
+                _this.chatService.getChatHistorySubject.next(_this.chatId);
             });
             this.userInput = '';
         }

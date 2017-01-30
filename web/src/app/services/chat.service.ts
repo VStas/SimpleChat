@@ -43,24 +43,22 @@ export interface ChatHistory {
 }
 
 const CHATS_URL = '/chats/';
-
+const HISTORY_URL = '/history/';
 
 @Injectable()
 export class ChatService {
   constructor(private http: Http) {}
   
   getChats(): Observable<Chat[]> {
-    // return Observable.of(CHATS);
-    return this.makeRequest(CHATS_URL);
+    return this.makeRequest(CHATS_URL, 'GET');
   }
 
   sendMessage(chatId: number, text: string): Observable<void> {
-    return Observable.of(null);
+    return this.makeRequest(CHATS_URL + chatId, 'POST', { text });
   }
 
   private getChatHistory(chatId: number): Observable<ChatHistory> {
-    console.log('requesting');
-    return Observable.of(CHAT_HISTORY);
+    return this.makeRequest(HISTORY_URL + chatId, 'GET');
   }
 
   getChatHistorySubject: Subject<number> = new Subject();
@@ -68,13 +66,12 @@ export class ChatService {
     .switchMap(chatId => this.getChatHistory(chatId))
     .share();
 
-
-  private makeRequest(path: string) {
+  private makeRequest(path: string, method: 'GET' | 'POST', body?: any) {
     const params = new URLSearchParams();
     params.set('username', 'Mike');
 
     const url = `http://${window.location.host}${ path }`;
-    return this.http.get(url, {search: params})
+    return this.http.request(url, { search: params, method, body })
       .map((res) => res.json());
   }
 }
