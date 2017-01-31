@@ -29,7 +29,6 @@ export class TextareaComponent implements OnInit {
     if (event.keyCode === 13) { // ENTER key
       this.chatService.sendMessage(this.chatId, this.userInput)
         .subscribe(() => {
-          // console.log('here');
           this.chatService.getChatHistorySubject.next(this.chatId);
         });
       this.userInput = '';
