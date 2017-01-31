@@ -1,1 +1,31 @@
-{"chats":[{"chatId":1,"peers":["Mike","Bob"],"messages":[{"from":"Bob","text":"Hi!"},{"from":"Mike","text":"Hey!"},{"from":"Bob","text":"How are you?"},{"from":"Mike","text":"f\n"},{"from":"Mike","text":"oh wow\n"}]},{"chatId":2,"peers":["Alice","Mike"],"messages":[{"from":"Alice","text":"I'm Alice!"},{"from":"Mike","text":"I'm Mike!"},{"from":"Alice","text":"Nice to meet you"},{"from":"Mike","text":"so nice\n"},{"from":"Alice","text":"yes\n"},{"from":"Mike","text":"ee\n"}]},{"chatId":3,"peers":["Mike","John"],"messages":[{"from":"Mike","text":"Hello!"},{"from":"Mike","text":"Can you see my messages?"},{"from":"John","text":"Yes"}]}]}
+{
+    "chats": [
+        {
+            "chatId": 1,
+            "peers": [ "Mike", "Bob" ],
+            "messages": [
+                { "from": "Bob", "text": "Hi!" },
+                { "from": "Mike", "text": "Hey!" },
+                { "from": "Bob", "text": "How are you?" }
+            ]
+        },
+        {
+            "chatId": 2,
+            "peers": [ "Alice", "Mike" ],
+            "messages": [
+                { "from": "Alice", "text": "I'm Alice!" },
+                { "from": "Mike", "text": "I'm Mike!" },
+                { "from": "Alice", "text": "Nice to meet you" }
+            ]
+        },
+        {
+            "chatId": 3,
+            "peers": [ "Mike", "John" ],
+            "messages": [
+                { "from": "Mike", "text": "Hello!" },
+                { "from": "Mike", "text": "Can you see my messages?" },
+                { "from": "John", "text": "Yes" }
+            ]
+        }
+    ]
+}

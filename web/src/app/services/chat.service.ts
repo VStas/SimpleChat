@@ -10,22 +10,6 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/share';
 
 
-const CHATS: Chat[] = [
-    { chatId: 1, peerName: 'Bob' },
-    { chatId: 2, peerName: 'Alice' },
-    { chatId: 3, peerName: 'John' },
-];
-
-const CHAT_HISTORY: ChatHistory = {
-    chatId: 1,
-    peerName: 'Bob',
-    messages: [
-        { from: 'Bob', text: 'Hi!' },
-        { from: 'Mike', text: 'Hey!' },
-        { from: 'Bob', text: 'How are you?' }
-    ]
-};
-
 export interface Chat {
     chatId: number;
     peerName: string;
